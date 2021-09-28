@@ -57,7 +57,10 @@ class CharNum {
 %%
 
 DIGIT=        [0-9]
+LETTER=       [a-zA-Z]
 WHITESPACE=   [\040\t]
+DOT= "."
+USCORE = "_"
 
 %implements java_cup.runtime.Scanner
 %function next_token
@@ -84,6 +87,63 @@ return new Symbol(sym.EOF);
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
 
+"int"     { Symbol S = new Symbol(sym.INT, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 3;
+            return S;
+          }
+
+"if"      { Symbol S = new Symbol(sym.IF, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 2;
+            return S;
+          }
+
+"bool"    { Symbol S = new Symbol(sym.BOOL, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 4;
+            return S;
+          }
+
+"void"    { Symbol S = new Symbol(sym.VOID, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 4;
+            return S;
+          }
+
+"stuct"   { Symbol S = new Symbol(sym.STRUCT, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 5;
+            return S;
+          }
+
+"receive" { Symbol S = new Symbol(sym.RECEIVE, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 7;
+            return S;
+          }
+
+"print"   { Symbol S = new Symbol(sym.PRINT, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 5;
+            return S;
+          }
+
+"else"   { Symbol S = new Symbol(sym.ELSE, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 4;
+            return S;
+          }
+
+"while"   { Symbol S = new Symbol(sym.WHILE, newTokenVal(yyline+1, CharNum.num));
+            CharNum.num += 5;
+            return S;
+          }
+
+// DELETE THIS LATER
+// Note that we still need tru, fls, ret. Asked on Piazza about the matching token
+// name for these. Was still awaiting a response when I was writing this. Also reserved
+// words need to be first because if it matches another case then it will take the ones
+// toward the top first. Also not sure if the identifier one is correct below.
+
+({LETTER}|{USCORE})({LETTER}|{DIGIT}|{USCORE})* {
+            Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
+            CharNum.num += yytext.length();
+            return S;
+          }
+
 "+"       { Symbol S = new Symbol(sym.PLUS, new TokenVal(yyline+1, CharNum.num));
             CharNum.num++;
             return S;
@@ -93,3 +153,4 @@ return new Symbol(sym.EOF);
                          "ignoring illegal character: " + yytext());
             CharNum.num++;
           }
+
