@@ -59,14 +59,12 @@ class CharNum {
 DIGIT=        [0-9]
 LETTER=       [a-zA-Z]
 WHITESPACE=   [\040\t]
-DOT= "."
-USCORE = "_"
-DOUBLE_QUOTE = "\""
-SINGLE_QUOTE = "\'"
-QUESTION_MARK = "\?"
-BACKSLASH = "\\"
-NEWLINE = "\n"
-TAB = "\t"
+DOT=          [.]
+USCORE =      [_]
+COMMENTS=     ["///""##"]
+DOUBLE_QUOTE= [\"]
+BACKSLASH =   [\\]
+NEWLINE =     [\n]
 
 
 
