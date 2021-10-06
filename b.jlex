@@ -84,8 +84,6 @@ return new Symbol(sym.EOF);
 
 %%
 
-
-
 \n        { CharNum.num = 1; }
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
@@ -302,24 +300,21 @@ return new Symbol(sym.EOF);
     return s;
 }
 
-// bad string literals (unterminated)
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR}))*)  {
   ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal ignored");
   CharNum += yytext().length();
 }
 
-// bad string (BACKSLASH followed by NOTESCAPEDCHAR)
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR}))*{DOUBLEQUOTE}) {
     ErrMsg.fatal(yyline+1, CharNum.num, "string literal with bad escaped character ignored");
   	CharNum += yytext().length();
 }
 
-// bad string (BACKSLASH followed by a NOTESCAPEDCHAR AND unterminated)
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR})|({BACKSLASH}{NEWLINE}))*) {
     ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal with bad escaped character ignored");
   	CharNum += yytext().length();
 }
-  
+
 .         { ErrMsg.fatal(yyline+1, CharNum.num,
                          "ignoring illegal character: " + yytext());
             CharNum.num++;
