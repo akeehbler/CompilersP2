@@ -88,62 +88,62 @@ return new Symbol(sym.EOF);
 
 {WHITESPACE}+  { CharNum.num += yytext().length(); }
 
-"int"     { Symbol S = new Symbol(sym.INT, newTokenVal(yyline+1, CharNum.num));
+"int"     { Symbol S = new Symbol(sym.INT, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 3;
             return S;
           }
 
-"if"      { Symbol S = new Symbol(sym.IF, newTokenVal(yyline+1, CharNum.num));
+"if"      { Symbol S = new Symbol(sym.IF, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 2;
             return S;
           }
 
-"bool"    { Symbol S = new Symbol(sym.BOOL, newTokenVal(yyline+1, CharNum.num));
+"bool"    { Symbol S = new Symbol(sym.BOOL, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 4;
             return S;
           }
 
-"void"    { Symbol S = new Symbol(sym.VOID, newTokenVal(yyline+1, CharNum.num));
+"void"    { Symbol S = new Symbol(sym.VOID, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 4;
             return S;
           }
 
-"stuct"   { Symbol S = new Symbol(sym.STRUCT, newTokenVal(yyline+1, CharNum.num));
+"stuct"   { Symbol S = new Symbol(sym.STRUCT, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 5;
             return S;
           }
 
-"receive" { Symbol S = new Symbol(sym.RECEIVE, newTokenVal(yyline+1, CharNum.num));
+"receive" { Symbol S = new Symbol(sym.RECEIVE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 7;
             return S;
           }
 
-"print"   { Symbol S = new Symbol(sym.PRINT, newTokenVal(yyline+1, CharNum.num));
+"print"   { Symbol S = new Symbol(sym.PRINT, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 5;
             return S;
           }
 
-"else"   { Symbol S = new Symbol(sym.ELSE, newTokenVal(yyline+1, CharNum.num));
+"else"   { Symbol S = new Symbol(sym.ELSE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 4;
             return S;
           }
 
-"while"   { Symbol S = new Symbol(sym.WHILE, newTokenVal(yyline+1, CharNum.num));
+"while"   { Symbol S = new Symbol(sym.WHILE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 5;
             return S;
           }
 
-"tru"     { Symbol S = new Symbol(sym.TRUE, newTokenVal(yyline+1, CharNum.num));
+"tru"     { Symbol S = new Symbol(sym.TRUE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 3;
             return S;
           }
 
-"fls"     { Symbol S = new Symbol(sym.FALSE, newTokenVal(yyline+1, CharNum.num));
+"fls"     { Symbol S = new Symbol(sym.FALSE, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 3;
             return S;
           }
 
-"ret"     { Symbol S = new Symbol(sym.RETURN, newTokenVal(yyline+1, CharNum.num));
+"ret"     { Symbol S = new Symbol(sym.RETURN, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 3;
             return S;
           }
