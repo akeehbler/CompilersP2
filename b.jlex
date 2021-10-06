@@ -290,7 +290,7 @@ return new Symbol(sym.EOF);
 
 ({LETTER}|{USCORE})({LETTER}|{DIGIT}|{USCORE})* {
             Symbol S = new Symbol(sym.ID, new IdTokenVal(yyline+1, CharNum.num, yytext()));
-            CharNum.num += yytext.length();
+            CharNum.num += yytext().length();
             return S;
           }
          
