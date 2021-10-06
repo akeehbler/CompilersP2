@@ -171,6 +171,7 @@ public class P2 {
 										break;
 								default:
 										outFile.println("UNKNOWN TOKEN");
+										break;
 						} // end switch
           	my_token = my_scanner.next_token();
         } // end while

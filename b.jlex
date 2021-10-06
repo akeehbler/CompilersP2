@@ -325,7 +325,7 @@ return new Symbol(sym.EOF);
 }
 
 // bad string (BACKSLASH followed by a NOTESCAPEDCHAR AND unterminated)
-({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR}))*) {
+({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR})|({BACKSLASH}{NEWLINE}))*) {
     ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal with bad escaped character ignored");
   	CharNum += yytext().length();
 }
