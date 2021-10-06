@@ -150,9 +150,6 @@ return new Symbol(sym.EOF);
             return S;
           }
 
-// DELETE THIS LATER 
-// These are the one or two character symbols that are tokens as well
-
 "{"       { Symbol S = new Symbol(sym.LCURLY, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 1;
             return S
@@ -273,13 +270,6 @@ return new Symbol(sym.EOF);
             return S;
           }
 
-
-// DELETE THIS LATER
-// Reserved words need to be first because if it matches another case then it will take the ones
-// toward the top first. Also not sure if the identifier one is correct below. Still have to fix
-// the digit issue. Also not sure if escaped characters, dot, and USCORE should be in quotes or just 
-// write the macro.
-
 {COMMENTS}.*  { CharNum.num = 1; }
 
 {DIGIT}+  { // NOTE: the following computation of the integer value does NOT
@@ -329,10 +319,7 @@ return new Symbol(sym.EOF);
     ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal with bad escaped character ignored");
   	CharNum += yytext().length();
 }
-
-//DELETE THIS LATER
-// This was in the skeleton code but a period is one of the characters we are supposed to handle
-// I have code in the section above for a period so not sure which to keep     
+  
 .         { ErrMsg.fatal(yyline+1, CharNum.num,
                          "ignoring illegal character: " + yytext());
             CharNum.num++;
