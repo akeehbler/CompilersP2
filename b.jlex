@@ -296,23 +296,23 @@ return new Symbol(sym.EOF);
          
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR}))*{DOUBLEQUOTE}) {
     Symbol s = new Symbol(sym.STRINGLITERAL, new StrLitTokenVal(yyline+1, CharNum.num, yytext()));
-    CharNum.num += yytext.length();
+    CharNum.num += yytext().length();
     return s;
 }
 
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR}))*)  {
   ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal ignored");
-  CharNum += yytext().length();
+  CharNum.num += yytext().length();
 }
 
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR}))*{DOUBLEQUOTE}) {
     ErrMsg.fatal(yyline+1, CharNum.num, "string literal with bad escaped character ignored");
-  	CharNum += yytext().length();
+  	CharNum.num += yytext().length();
 }
 
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR})|({BACKSLASH}{NEWLINE}))*) {
     ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal with bad escaped character ignored");
-  	CharNum += yytext().length();
+  	CharNum.num += yytext().length();
 }
 
 .         { ErrMsg.fatal(yyline+1, CharNum.num,
