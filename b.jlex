@@ -63,6 +63,7 @@ DOT=          [.]
 USCORE=       [_]
 COMMENTS=     ["///""###"]
 ESCAPEDCHARS= ["n""t"\'\""?"\\]
+NOTESCAPEDCHAR = [^"n"^"t"^\'^\"^"?"^\\]
 DOUBLEQUOTE= [\"]
 BACKSLASH=    [\\]
 NEWLINE=      [\n]
@@ -311,9 +312,34 @@ return new Symbol(sym.EOF);
     return s;
 }
 
+// bad string literals (unterminated)
 ({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR}))*)  {
   ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal ignored");
   CharNum += yytext().length();
+}
+
+// bad string (ends with \")
+({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR}))*{BACKSLASH}{DOUBLEQUOTE}) {
+    ErrMsg.fatal(yyline+1, CharNum.num, "unterminated string literal ignored");
+  	CharNum += yytext().length();
+}
+
+// bad string (has BACKSLASH followed by a WHITESPACE)
+({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{WHITESPACE}))*{DOUBLEQUOTE}) {
+    ErrMsg.fatal(yyline+1, CharNum.num, "string literal with with backslash followed by a space ignored");
+  	CharNum += yytext().length();
+}
+
+// bad string (has BACKSLASH followed by a NOTESCAPEDCHAR)
+({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR}))*{DOUBLEQUOTE}) {
+    ErrMsg.fatal(yyline+1, CharNum.num, "string literal with bad escape char ignored");
+  	CharNum += yytext().length();
+}
+
+// bad string (has BACKSLASH followed by a NOTESCAPEDCHAR AND unterminated)
+({DOUBLEQUOTE}(({BACKSLASH}{ESCAPEDCHARS})|({SINGLECHAR})|({BACKSLASH}{NOTESCAPEDCHAR}))*{DOUBLEQUOTE}) {
+    ErrMsg.fatal(yyline+1, CharNum.num, "string literal with bad escape char and unterminated");
+  	CharNum += yytext().length();
 }
 
 //DELETE THIS LATER

@@ -50,7 +50,7 @@ public class P2 {
             case sym.BOOL:
                 outFile.println("bool"); 
                 break;
-			case sym.INT:
+						case sym.INT:
                 outFile.println("int");
                 break;
             case sym.VOID:
