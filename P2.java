@@ -62,112 +62,112 @@ public class P2 {
 										outFile.println("true Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum)); 
 										break;
 								case sym.FALSE:
-										outFile.println("false"); 
+										outFile.println("false Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum)); 
 										break;
 								case sym.STRUCT:
-										outFile.println("struct"); 
+										outFile.println("struct Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum)); 
 										break;
 								case sym.RECEIVE:
-										outFile.println("receive"); 
+										outFile.println("receive Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum)); 
 										break;
 								case sym.PRINT:
-										outFile.println("print");
+										outFile.println("print Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;				
 								case sym.IF:
-										outFile.println("if");
+										outFile.println("if Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.ELSE:
-										outFile.println("else");
+										outFile.println("else Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.WHILE:
-										outFile.println("while");
+										outFile.println("while Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.RETURN:
-										outFile.println("return");
+										outFile.println("return Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.ID:
-										outFile.println(((IdTokenVal)my_token.value).idVal);
+										outFile.println(((IdTokenVal)my_token.value).idVal + " Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.INTLITERAL:  
-										outFile.println(((IntLitTokenVal)my_token.value).intVal);
+										outFile.println(((IntLitTokenVal)my_token.value).intVal + " Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.STRINGLITERAL: 
-										outFile.println(((StrLitTokenVal)my_token.value).strVal);
+										outFile.println(((StrLitTokenVal)my_token.value).strVal + " Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;    
 								case sym.LCURLY:
-										outFile.println("{");
+										outFile.println("{ Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.RCURLY:
-										outFile.println("}");
+										outFile.println("} Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.LPAREN:
-										outFile.println("(");
+										outFile.println("( Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.RPAREN:
-										outFile.println(")");
+										outFile.println(") Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.SEMICOLON:
-										outFile.println(";");
+										outFile.println("; Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.COMMA:
-										outFile.println(",");
+										outFile.println(", Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.DOT:
-										outFile.println(".");
+										outFile.println(". Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.WRITE:
-										outFile.println("<<");
+										outFile.println("<< Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.READ:
-										outFile.println(">>");
+										outFile.println(">> Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;				
 								case sym.PLUSPLUS:
-										outFile.println("++");
+										outFile.println("++ Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.MINUSMINUS:
-										outFile.println("--");
+										outFile.println("-- Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;	
 								case sym.PLUS:
-										outFile.println("+");
+										outFile.println("+ Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.MINUS:
-										outFile.println("-");
+										outFile.println("- Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.TIMES:
-										outFile.println("*");
+										outFile.println("* Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.DIVIDE:
-										outFile.println("/");
+										outFile.println("/ Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.NOT:
-										outFile.println("!");
+										outFile.println("! Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.AND:
-										outFile.println("&&");
+										outFile.println("&& Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.OR:
-										outFile.println("||");
+										outFile.println("|| Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.EQUALS:
-										outFile.println("==");
+										outFile.println("== Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.NOTEQUALS:
-										outFile.println("!=");
+										outFile.println("!= Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.LESS:
-										outFile.println("<");
+										outFile.println("< Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.GREATER:
-										outFile.println(">");
+										outFile.println("> Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.LESSEQ:
-										outFile.println("<=");
+										outFile.println("<= Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.GREATEREQ:
-										outFile.println(">=");
+										outFile.println(">= Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.ASSIGN:
-										outFile.println("=");
+										outFile.println("= Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								default:
 										outFile.println("UNKNOWN TOKEN");
