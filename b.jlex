@@ -45,12 +45,12 @@ DOT=          [.]
 USCORE=       [_]
 COMMENTS=     ["///""###"]
 ESCAPEDCHARS= ["n""t"\'\""?"\\]
-NOTESCAPEDCHAR = [^"n"^"t"^\'^\"^"?"^\\]
+NOTESCAPEDCHAR = [^"n""t"\'\""?"\\]
 DOUBLEQUOTE= [\"]
 BACKSLASH=    [\\]
 NEWLINE=      [\n]
 NOTDOUBLEQ=   [^\"]
-SINGLECHAR= [^\\^\n^\"]
+SINGLECHAR= [^\\\n\"]
 
 
 

@@ -66,7 +66,16 @@ ______another
 one
 "bruhhhh"
 "im hungry"
-"~!@#$%^&*()_{}:,.;'abcdefghijklmnopqrstuvwxyz"
+"^~!@^#$%&*(^)_{}:,.;'abcdefg^hijklmnopqrstuvwxyz"
+"^^^"
+"\n"
+"\t"
+"\'"
+"\""
+"\?"
+"\\"
+
+
 ### comment
 /// comment
 "unterminated
@@ -75,4 +84,5 @@ one
 "bad escaped character: \3
 "backslash followed by space: \ is not allowed"
 "bad escaped character: \a AND not terminated
+"string \^"
 9999999999999999
