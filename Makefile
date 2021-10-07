@@ -37,8 +37,8 @@ ErrMsg.class: ErrMsg.java
 ###
 test:
 	java -cp $(CP) P2 
-	diff allTokens.in allTokens.out > allTokensDiff.out
-	diff eof.txt eof.out > eofDiff.out
+	diff eof.txt eof.out > eofDiff.out; [ $$? -eq 1 ]
+	diff allTokens.in allTokens.out > allTokensDiff.out; [ $$? -eq 1 ]
 
 ###
 # clean up
