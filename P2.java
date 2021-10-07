@@ -9,8 +9,12 @@ import java_cup.runtime.*;  // defines Symbol
  */
 public class P2 {
     public static void main(String[] args) throws IOException {
-                                           // exception may be thrown by yylex
-        testAllTokens("allTokens", ".in");
+    		// exception may be thrown by yylex
+        
+				CharNum.num = 1;
+				testAllTokens("allTokens", ".in");
+				
+				CharNum.num = 1;
         testAllTokens("eof", ".txt");
 
     }
@@ -23,11 +27,12 @@ public class P2 {
      * If the input file contains all tokens, one per line, we can verify
      * correctness of the scanner by comparing the input and output files
      * (e.g., using a 'diff' command).
-     */
+    */
     private static void testAllTokens(String filename, String extension) throws IOException {
         // open input and output files
         FileReader inFile = null;
         PrintWriter outFile = null;
+
         try {
             inFile = new FileReader(filename + extension);
             outFile = new PrintWriter(new FileWriter(filename + ".out"));
@@ -45,16 +50,16 @@ public class P2 {
         while (my_token.sym != sym.EOF) {
 						switch (my_token.sym) {
 								case sym.BOOL:
-										outFile.println("bool"); 
+										outFile.println("bool: Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.INT:
-										outFile.println("int");
+										outFile.println("int Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.VOID:
-										outFile.println("void");
+										outFile.println("void Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum));
 										break;
 								case sym.TRUE:
-										outFile.println("true"); 
+										outFile.println("true Line: " + (((TokenVal)my_token.value).linenum) + "  |  Char: " + (((TokenVal)my_token.value).charnum)); 
 										break;
 								case sym.FALSE:
 										outFile.println("false"); 
