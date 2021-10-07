@@ -90,7 +90,7 @@ return new Symbol(sym.EOF);
             return S;
           }
 
-"stuct"   { Symbol S = new Symbol(sym.STRUCT, new TokenVal(yyline+1, CharNum.num));
+"struct"   { Symbol S = new Symbol(sym.STRUCT, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 5;
             return S;
           }
@@ -241,6 +241,11 @@ return new Symbol(sym.EOF);
           }
 
 "<="      { Symbol S = new Symbol(sym.LESSEQ, new TokenVal(yyline+1, CharNum.num));
+            CharNum.num += 2;
+            return S;
+          }
+
+">="      { Symbol S = new Symbol(sym.GREATEREQ, new TokenVal(yyline+1, CharNum.num));
             CharNum.num += 2;
             return S;
           }

@@ -10,14 +10,9 @@ import java_cup.runtime.*;  // defines Symbol
 public class P2 {
     public static void main(String[] args) throws IOException {
                                            // exception may be thrown by yylex
-        // test all tokens
-        testAllTokens("allTokens");
-        testAllTokens("testFile");
+        testAllTokens("allTokens", ".in");
+        testAllTokens("eof", ".txt");
 
-				// I don't think this goes here.
-				// CharNum.num = 1;
-    
-        // ADD CALLS TO OTHER TEST METHODS HERE
     }
 
     /**
@@ -29,18 +24,18 @@ public class P2 {
      * correctness of the scanner by comparing the input and output files
      * (e.g., using a 'diff' command).
      */
-    private static void testAllTokens(String filename) throws IOException {
+    private static void testAllTokens(String filename, String extension) throws IOException {
         // open input and output files
         FileReader inFile = null;
         PrintWriter outFile = null;
         try {
-            inFile = new FileReader(filename + ".in");
+            inFile = new FileReader(filename + extension);
             outFile = new PrintWriter(new FileWriter(filename + ".out"));
         } catch (FileNotFoundException ex) {
-            System.err.println("File " + filename + ".in not found.");
+            System.err.println("File " + filename + extension + " not found.");
             System.exit(-1);
         } catch (IOException ex) {
-            System.err.println(filename + ".out cannot be opened.");
+            System.err.println(filename + " .out cannot be opened.");
             System.exit(-1);
         }
 

@@ -37,7 +37,8 @@ ErrMsg.class: ErrMsg.java
 ###
 test:
 	java -cp $(CP) P2 
-	diff allTokens.in allTokens.out
+	diff allTokens.in allTokens.out > allTokensDiff.out
+	diff eof.txt eof.out > eofDiff.out
 
 ###
 # clean up
@@ -48,3 +49,6 @@ clean:
 
 cleantest:
 	rm -f allTokens.out
+	rm -f eof.out
+	rm -f eofDiff.out
+	rm -f allTokensDiff.out
